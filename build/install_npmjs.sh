@@ -20,9 +20,9 @@ EOF
 setuser couchdb /opt/couchdb/bin/couchdb -o /tmp/couchdb.stdout -e /tmp/couchdb.stderr -b;
 
 cd /tmp
-git clone git://github.com/terinjokes/npmjs.org
+git clone git://github.com/npm/npmjs.org
 cd npmjs.org
-git checkout -t origin/jsontool
+git checkout tags/v2.0.4
 
 npm install
 
