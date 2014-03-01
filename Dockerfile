@@ -5,7 +5,8 @@ MAINTAINER Terin Stock <terinjokes@gmail.com>
 ENV PATH /opt/node/bin/:$PATH
 ENV HOME /root
 
-RUN /usr/sbin/enable_insecure_key
+VOLUME ["/opt/couchdb/var/lib/couchdb/"]
+
 CMD ["/sbin/my_init"]
 
 ADD build /build/docker-npmjs

@@ -22,3 +22,4 @@ chmod 0770 /opt/couchdb/etc/couchdb /opt/couchdb/var/lib/couchdb /opt/couchdb/va
 
 mkdir /etc/service/couchdb
 cp /build/docker-npmjs/runit/couchdb.sh /etc/service/couchdb/run
+cp /build/docker-npmjs/50_enforce_couchdb_permissions.sh /etc/my_init.d/
