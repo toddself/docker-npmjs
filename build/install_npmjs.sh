@@ -3,7 +3,7 @@ set -e
 source /build/docker-npmjs/buildconfig
 set -x
 
-$minimal_apt_get_install git dnsutils
+$minimal_apt_get_install dnsutils
 
 cat<<EOF > /opt/couchdb/etc/couchdb/local.ini
 [couch_httpd_auth]
