@@ -2,7 +2,7 @@
 	"servers": [
 		{
 			"host": "0.0.0.0",
-			"port": 1337",
+			"port": 1337,
 			"options": {
 				"payload": {
 					"maxBytes": ${payload}
