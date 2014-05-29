@@ -15,7 +15,7 @@ if [ ! -f $VOLUME/.initialized ]; then
 fi;
 
 echo -e "[couchdb]\ndatabase_dir = $VOLUME\nview_index_dir = $VOLUME" > /usr/local/etc/couchdb/local.d/couchdb.ini
-echo -e "[log]\nfile = $VOLUME/couch.log" > /usr/local/etc/local.d/log.ini
+echo -e "[log]\nfile = $VOLUME/couch.log" > /usr/local/etc/couchdb/local.d/log.ini
 echo -e "[vhosts]\n$FULLHOST:5984 = /registry/_design/app/_rewrite" > /usr/local/etc/couchdb/local.d/npmjs-vhost.ini
 cat /opt/npmjs/kappa.json.default | sed -e "s/\${hostname}/$FULLHOST/" | sed -e "s/\${payload}/$PAYLOAD/" > /opt/npmjs/kappa.json
 couchdb -b; kappa -c /opt/npmjs/kappa.json & tail -f $VOLUME/couch.log
