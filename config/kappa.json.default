@@ -17,6 +17,6 @@
 			}
 	},
 	"payload": {
-		maxBytes : ${payload}
+		"maxBytes" : ${payload}
 	}
 }
