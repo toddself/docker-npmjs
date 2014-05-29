@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/terinjokes/docker-npmjs.png?label=ready)](https://waffle.io/terinjokes/docker-npmjs)
 
 # Docker Image for npm
-**Version**: 0.5.2  
+**Version**: 0.5.2
 **Docker Versions**: >=0.6.5 <0.9.0
 
 An easy way to get started with a private npm server, along with [kappa](https://github.com/paypal/kappa).
@@ -25,6 +25,19 @@ Providing the vhost (via the `-h`) options, as well as exposing the ports (`-p`)
 
 ```
 docker run -d -h npmjs.intranet -p=5984:5984 -p=1337:1337 npmjs
+```
+
+You can override the default maximum attachment (1MB) size for hapi by passing in a PAYLOAD environment variable:
+
+```
+docker run -d -h npmjs.intranet -p=5984:5984 -p=1337:1337 -e PAYLOAD=[new size] npmjs
+```
+
+If you want your data to persist even if the container is stopped, you will want to mount a data container
+
+```
+docker run -d --name npm_data -v /var/lib/couchdb busybox /bin/true
+docker run -d --volumes-from npm_data -e PAYLOAD=[new size] --name npm -p=1337:1337 -p=5984:5984 -h npmjs.intranet npmjs
 ```
 
 ## Using
