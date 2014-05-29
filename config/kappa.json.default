@@ -2,7 +2,12 @@
 	"servers": [
 		{
 			"host": "0.0.0.0",
-			"port": 1337
+			"port": 1337",
+			"options": {
+				"payload": {
+					"maxBytes": ${payload}
+				}
+			}
 		}
 	],
 	"plugins": {
@@ -15,8 +20,5 @@
 					"http://npm.nodejs.org.au:5984/registry/_design/app/_rewrite"
 				]
 			}
-	},
-	"payload": {
-		"maxBytes" : ${payload}
 	}
 }
